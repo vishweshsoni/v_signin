@@ -1,3 +1,4 @@
+import 'package:demo/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo/home_page.dart';
 import 'package:demo/login_image.dart';
@@ -7,6 +8,7 @@ class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
      HomePage.tag : (context) => HomePage(),
+    Signup.tag : (context) => Signup(),
   };
 
   @override

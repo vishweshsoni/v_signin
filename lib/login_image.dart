@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:demo/services/authentication.dart';
 import 'package:demo/services/validation.dart';
+import 'package:demo/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo/home_page.dart';
 import 'package:demo/main.dart';
@@ -237,7 +238,7 @@ class _LoginPageState extends State<LoginPage> {
 
 
         ),
-        onPressed: () => print("signup"),
+        onPressed: () => Navigator.of(context).pushNamed(Signup.tag),
       ),
 
     );
@@ -259,24 +260,24 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-class BottomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = new Path();
-    path.lineTo(0.0, size.height);
+  class BottomClipper extends CustomClipper<Path> {
+    @override
+    Path getClip(Size size) {
+      Path path = new Path();
+      path.lineTo(0.0, size.height);
 
-    var firstControlPoint = new Offset(size.width / 2.0, size.height / 2.0);
-    var firstEndPoint = new Offset(size.width, size.height);
+      var firstControlPoint = new Offset(size.width / 2.0, size.height / 2.0);
+      var firstEndPoint = new Offset(size.width, size.height);
 
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
+      path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+          firstEndPoint.dx, firstEndPoint.dy);
 
-    path.lineTo(size.width, size.height - 40);
-    path.lineTo(size.width, 0.0);
-    path.close();
-    return path;
+      path.lineTo(size.width, size.height - 40);
+      path.lineTo(size.width, 0.0);
+      path.close();
+      return path;
+    }
+
+    @override
+    bool shouldReclip(CustomClipper<Path> oldClipper) => false;
   }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
