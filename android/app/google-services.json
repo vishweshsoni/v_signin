@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "442203125271",
+    "firebase_url": "https://mydemosign.firebaseio.com",
+    "project_id": "mydemosign",
+    "storage_bucket": "mydemosign.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442203125271:android:7db234dae70ff548",
+        "android_client_info": {
+          "package_name": "vishwesh.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442203125271-r5joncg1bvdndodksr560arh9t8hm0kh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vishwesh.demo",
+            "certificate_hash": "7a3cee1ef801455cd6cf6f1531fc27f001649be6"
+          }
+        },
+        {
+          "client_id": "442203125271-b6cun2jo4te91pvvk5hjq8nn034o720u.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "442203125271-b6cun2jo4te91pvvk5hjq8nn034o720u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq4U2gF41d_mYm4Z939_eYT5kyAxRtcEM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442203125271-b6cun2jo4te91pvvk5hjq8nn034o720u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
