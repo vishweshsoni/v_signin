@@ -2,6 +2,7 @@ import 'package:demo/services/authentication.dart';
 import 'package:demo/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo/home_page.dart';
+import 'package:demo/root_page.dart';
 import 'package:demo/login_image.dart';
 void main() => runApp(MyApp());
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Nunito'
       ),
-      home: LoginPage(auth: new UserAuth()),
+      home: RootPage(auth: new UserAuth()),
       routes: routes,
 
     );

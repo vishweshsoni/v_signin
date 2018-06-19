@@ -10,8 +10,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
- LoginPage({this.auth});
+ LoginPage({this.auth,this.onSignedIn});
   final UserAuth auth;
+  final VoidCallback onSignedIn;
   @override
   _LoginPageState createState() => new _LoginPageState();
 }
@@ -52,11 +53,11 @@ class _LoginPageState extends State<LoginPage> {
     try {
       String userId = await widget.auth.signInWithEmailAndPassword(_email, _password);
       print('Signed In: $userId');
-      Navigator.of(context).pushNamed(HomePage.tag);
 
     } catch (e) {
       print("error: $e");
     }
+    widget.onSignedIn();
     final snackbar =
     new SnackBar(content: new Text('email : $_email,password:$_password'));
     _scaffoldKey.currentState.showSnackBar(snackbar);
