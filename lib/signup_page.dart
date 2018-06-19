@@ -1,9 +1,13 @@
+import 'package:demo/home_page.dart';
 import 'package:demo/login_image.dart';
+import 'package:demo/services/authentication.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
   static String tag = 'signup-page';
-
+  Signup({this.auth});
+  final UserAuth auth;
   @override
   _SignupState createState() => _SignupState();
 }
@@ -15,6 +19,27 @@ class _SignupState extends State<Signup> {
  bool autovalidate = false;
  final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+ void _submit() {
+   final form = formKey.currentState;
+   if (form.validate()) {
+     form.save();
+     _performSignup();
+   }
+   }
+   void _performSignup() async {
+     try {
+        String userId = await widget.auth.createUserWithEmailAndPassword(_email, _password);
+       print('Registered user: $userId');
+       Navigator.of(context).pushNamed(HomePage.tag);
+
+     } catch (e) {
+       print("error: $e");
+     }
+     final snackbar =
+     new SnackBar(content: new Text('email : $_email,password:$_password'));
+     _scaffoldKey.currentState.showSnackBar(snackbar);
+   }
  @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -147,7 +172,7 @@ class _SignupState extends State<Signup> {
                             child: MaterialButton(
                               minWidth: 200.0,
                               height: 52.0,
-//                              onPressed: _submit,
+                              onPressed: _submit,
                               color: Colors.redAccent,
                               child: Text(
                                 'Signup',

@@ -4,14 +4,14 @@ import 'package:demo/services/validation.dart';
 import 'package:demo/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo/home_page.dart';
-import 'package:demo/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
-  const LoginPage({Key key}) : super(key: key);
+ LoginPage({this.auth});
+  final UserAuth auth;
   @override
   _LoginPageState createState() => new _LoginPageState();
 }
@@ -50,9 +50,9 @@ class _LoginPageState extends State<LoginPage> {
   }
   void _performLogin() async {
     try {
-      FirebaseUser user = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: _email, password: _password);
-      Navigator.of(context).pushNamed(Signup.tag);
+      String userId = await widget.auth.signInWithEmailAndPassword(_email, _password);
+      print('Signed In: $userId');
+      Navigator.of(context).pushNamed(HomePage.tag);
 
     } catch (e) {
       print("error: $e");

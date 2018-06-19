@@ -1,3 +1,4 @@
+import 'package:demo/services/authentication.dart';
 import 'package:demo/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo/home_page.dart';
@@ -6,9 +7,9 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
-    LoginPage.tag: (context) => LoginPage(),
+    LoginPage.tag: (context) => LoginPage(auth: new UserAuth()),
      HomePage.tag : (context) => HomePage(),
-    Signup.tag : (context) => Signup(),
+    Signup.tag : (context) => Signup(auth: new UserAuth()),
   };
 
   @override
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Nunito'
       ),
-      home: LoginPage(),
+      home: LoginPage(auth: new UserAuth()),
       routes: routes,
 
     );
