@@ -1,3 +1,4 @@
+import 'package:demo/login_image.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
@@ -8,6 +9,7 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  FormType _formtype= FormType.register;
   String  _username;
   String _email;
   String _password;
@@ -85,7 +87,7 @@ class _SignupState extends State<Signup> {
           ],
         ),
       ),
-      height: 185.0,
+      height: 400.0,
       margin: new EdgeInsets.only(left: 20.0, top: 140.0, right: 20.0),
       decoration: new BoxDecoration(
         color: Colors.white,
